@@ -6,13 +6,13 @@ function Tankopedia(props) {
         tanksList,
     } = props
 
-const [filteredTanks, setFilteredTanks] = useState([])
+
 const [tankFilter, setTankFilter] = useState([
     {
-        nations: {'usa': true, 'germany': false, 'ussr': false, 'uk': false, 'france': false, 'japan': false, 'czech': false, 'china': false, 'poland': false},
+        nations: {'usa': false, 'germany': false, 'ussr': false, 'uk': false, 'france': false, 'japan': false, 'czech': false, 'china': false, 'poland': false},
         tiers: {1: false, 2: false, 3: false, 4: false, 5: false, 6: false, 7: false, 8: false, 9: false, 10: false},
+        types: {'lightTank': false, 'mediumTank': false, 'heavyTank': false, 'AT-SPG': false, 'SPG': false},
         is_premium: {'true': false, 'false': false},
-        types: {'lightTank': false, 'mediumTank': false, 'heavyTank': false, 'AT-SPG': false, 'SPG': true}
     }
     ])
 
@@ -23,22 +23,93 @@ let handleSearchTanks = () =>{
     let workingArray = [tanksList]
     workingArray = workingArray[0]
     workingArray = Object.values(workingArray)
+
+
+    let nationsFilterOn = false
+    let tiersFilterOn = false
+    let typesFilterOn = false
+    
+
+
+    let checkNationsFilter = () => {
+        Object.values(tankFilter[0].nations).map(index =>{
+        if(index === true){
+            return nationsFilterOn = true
+        } else {
+            return
+        }
+
+    })
+}
+
+
+    let checkTiersFilter = () =>{
+        Object.values(tankFilter[0].tiers).map(index =>{
+            if(index === true){
+                return tiersFilterOn = true
+            } else {
+                return
+            }
+        })
+    }
+
+    let checkTypesFilter = () =>{
+        Object.values(tankFilter[0].types).map(index =>{
+            if(index === true){
+                return typesFilterOn = true
+            } else{
+                return
+            }
+        })
+    }
+    
+
+    checkNationsFilter()
+    checkTiersFilter()
+    checkTypesFilter()
+
     workingArray.map(tank =>{
 
-
-        if(tankFilter[0].nations[tank.nation] === true ||
-            tankFilter[0].tiers[tank.tier] === true ||
-            tankFilter[0].types[tank.type] === true){
-            searchedTanksArray.push(tank)
-
             ///////
-            // IF NATIONS/TIERS/TYPES TRUE, 
-            // THEN IF NATION/TIER/TYPE TRUE ALSO
+            // check which tank filter objects have trues
+            // run filter function with whichever filter objects have trues
+        if(nationsFilterOn === true && typesFilterOn === false && tiersFilterOn === false){
+            if(tankFilter[0].nations[tank.nation] === true){
+                searchedTanksArray.push(tank)
+            }
+        } else if(nationsFilterOn === true && typesFilterOn === true && tiersFilterOn === false){
+            if(tankFilter[0].nations[tank.nation] === true &&
+                tankFilter[0].types[tank.type] === true){
+                    searchedTanksArray.push(tank)
+                }
+        } else if(nationsFilterOn === true && typesFilterOn === false && tiersFilterOn === true){
+            if(tankFilter[0].nations[tank.nation] === true && 
+                tankFilter[0].tiers[tank.tier] === true){
+                searchedTanksArray.push(tank)
+            }
+        } else if(nationsFilterOn === false && typesFilterOn === true && tiersFilterOn === false){
+            if(tankFilter[0].types[tank.type] === true){
+                searchedTanksArray.push(tank)
+            }
+        } else if(nationsFilterOn === false && typesFilterOn === true && tiersFilterOn === true){
+            if(tankFilter[0].types[tank.type] === true && 
+                tankFilter[0].tiers[tank.tier] === true){
+                searchedTanksArray.push(tank)
+            }
+        } else if(nationsFilterOn === false && typesFilterOn === false && tiersFilterOn === true){
+            if(tankFilter[0].tiers[tank.tier] === true){
+                searchedTanksArray.push(tank)
+            }
+        } else if(nationsFilterOn === true && typesFilterOn === true && tiersFilterOn === true){
+            if(tankFilter[0].nations[tank.nation] === true &&
+                tankFilter[0].types[tank.type] === true &&
+                tankFilter[0].tiers[tank.tier] === true){
+                    searchedTanksArray.push(tank)
+                }
         }
-       
     })
-
 }
+
 
 handleSearchTanks()
 
