@@ -1,7 +1,14 @@
-import {useState, useEffect} from 'react'
-import './App.css';
-import Tankopedia from './Tankopedia'
-require('dotenv').config()
+import {useState, useEffect} from 'react';
+import { BrowserRouter, Route } from "react-router-dom";
+
+
+import Tankopedia from './components/Tankopedia';
+import Home from './components/Home';
+import Navbar from './components/Navbar';
+
+require('dotenv').config();
+
+
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
@@ -20,21 +27,19 @@ function App() {
   }, [])
 
 
-
-
-
-
-
-
-
   return(
-    <div className="app">
+    <BrowserRouter>
+      <Navbar/>
+      <Route exact path="/">
+        <Home/>
+      </Route>
 
-    <Tankopedia
-    tanksList={tanksList}
-    />
-
-    </div>
+      <Route path="/tankopedia">
+        <Tankopedia
+        tanksList={tanksList}
+        />
+      </Route>
+    </BrowserRouter>
   )
 
 
