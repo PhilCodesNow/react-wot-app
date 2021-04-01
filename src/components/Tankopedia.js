@@ -18,7 +18,33 @@ const [tankFilter, setTankFilter] = useState([
 
     let searchedTanksArray = []
 
-
+let handleNationClick = (nation) =>{
+    let stateArray = [...tankFilter]
+    if(stateArray[0].nations[nation] === true){
+        stateArray[0].nations[nation] = false
+    } else {
+        stateArray[0].nations[nation] = true
+    }
+    setTankFilter([...stateArray])
+}
+let handleTierClick = (tier) =>{
+    let stateArray = [...tankFilter]
+    if(stateArray[0].tiers[tier] === true){
+        stateArray[0].tiers[tier] = false
+    } else {
+        stateArray[0].tiers[tier] = true
+    }
+    setTankFilter([...stateArray])
+}
+let handleTypeClick = (type) =>{
+    let stateArray = [...tankFilter]
+    if(stateArray[0].types[type] === true){
+        stateArray[0].types[type] = false
+    } else {
+        stateArray[0].types[type] = true
+    }
+    setTankFilter([...stateArray])
+}
 let handleSearchTanks = () =>{
     let workingArray = [tanksList]
     workingArray = workingArray[0]
@@ -30,7 +56,6 @@ let handleSearchTanks = () =>{
     let typesFilterOn = false
     
 
-
     let checkNationsFilter = () => {
         Object.values(tankFilter[0].nations).map(index =>{
         if(index === true){
@@ -41,8 +66,6 @@ let handleSearchTanks = () =>{
 
     })
 }
-
-
     let checkTiersFilter = () =>{
         Object.values(tankFilter[0].tiers).map(index =>{
             if(index === true){
@@ -52,7 +75,6 @@ let handleSearchTanks = () =>{
             }
         })
     }
-
     let checkTypesFilter = () =>{
         Object.values(tankFilter[0].types).map(index =>{
             if(index === true){
@@ -69,10 +91,6 @@ let handleSearchTanks = () =>{
     checkTypesFilter()
 
     workingArray.map(tank =>{
-
-            ///////
-            // check which tank filter objects have trues
-            // run filter function with whichever filter objects have trues
         if(nationsFilterOn === true && typesFilterOn === false && tiersFilterOn === false){
             if(tankFilter[0].nations[tank.nation] === true){
                 searchedTanksArray.push(tank)
@@ -109,8 +127,6 @@ let handleSearchTanks = () =>{
         }
     })
 }
-
-
 handleSearchTanks()
 
     return (
@@ -118,34 +134,34 @@ handleSearchTanks()
             Tankopedia
             <div className="tank-options">
                 <ul>
-                    <li><button>U.S.A.</button></li>
-                    <li><button>Germany</button></li>
-                    <li><button>U.S.S.R</button></li>
-                    <li><button>U.K.</button></li>
-                    <li><button>France</button></li>
-                    <li><button>Japan</button></li>
-                    <li><button>Czech</button></li>
-                    <li><button>China</button></li>
-                    <li><button>Poland</button></li>
+                    <li><button onClick={() => handleNationClick('usa')}>U.S.A.</button></li>
+                    <li><button onClick={() => handleNationClick('germany')}>Germany</button></li>
+                    <li><button onClick={() => handleNationClick('ussr')}>U.S.S.R</button></li>
+                    <li><button onClick={() => handleNationClick('uk')}>U.K.</button></li>
+                    <li><button onClick={() => handleNationClick('france')}>France</button></li>
+                    <li><button onClick={() => handleNationClick('japan')}>Japan</button></li>
+                    <li><button onClick={() => handleNationClick('czech')}>Czech</button></li>
+                    <li><button onClick={() => handleNationClick('china')}>China</button></li>
+                    <li><button onClick={() => handleNationClick('poland')}>Poland</button></li>
                 </ul>
                 <ul>
-                    <li><button>&#x2160;</button></li>
-                    <li><button>&#x2161;</button></li>
-                    <li><button>&#x2162;</button></li>
-                    <li><button>&#x2163;</button></li>
-                    <li><button>&#x2164;</button></li>
-                    <li><button>&#x2165;</button></li>
-                    <li><button>&#x2166;</button></li>
-                    <li><button>&#x2167;</button></li>
-                    <li><button>&#x2168;</button></li>
-                    <li><button>&#x2169;</button></li>
+                    <li><button onClick={() => handleTierClick(1)}>&#x2160;</button></li>
+                    <li><button onClick={() => handleTierClick(2)}>&#x2161;</button></li>
+                    <li><button onClick={() => handleTierClick(3)}>&#x2162;</button></li>
+                    <li><button onClick={() => handleTierClick(4)}>&#x2163;</button></li>
+                    <li><button onClick={() => handleTierClick(5)}>&#x2164;</button></li>
+                    <li><button onClick={() => handleTierClick(6)}>&#x2165;</button></li>
+                    <li><button onClick={() => handleTierClick(7)}>&#x2166;</button></li>
+                    <li><button onClick={() => handleTierClick(8)}>&#x2167;</button></li>
+                    <li><button onClick={() => handleTierClick(9)}>&#x2168;</button></li>
+                    <li><button onClick={() => handleTierClick(10)}>&#x2169;</button></li>
                 </ul>
                 <ul>
-                    <li><button>Heavy</button></li>
-                    <li><button>Medium</button></li>
-                    <li><button>Light</button></li>
-                    <li><button>Tank Destroyer</button></li>
-                    <li><button>Artillery</button></li>
+                    <li><button onClick={() => handleTypeClick('heavyTank')}>Heavy</button></li>
+                    <li><button onClick={() => handleTypeClick('mediumTank')}>Medium</button></li>
+                    <li><button onClick={() => handleTypeClick('lightTank')}>Light</button></li>
+                    <li><button onClick={() => handleTypeClick('SPG-AT')}>Tank Destroyer</button></li>
+                    <li><button onClick={() => handleTypeClick('SPG')}>Artillery</button></li>
                 </ul>
  
             </div>
