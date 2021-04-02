@@ -1,4 +1,9 @@
 
+.tank-options{
+    display: flex;
+    margin: 0 auto;
+    max-width: 50%;
+}
 .tank-options-ul li button{
     background-color: #655d5d;
     transform: translate(.5px, .5px)
@@ -18,9 +23,21 @@
 
 .tank-list{
     max-width: 80%;
-    max-height: 20vh;
+    max-height: 26vh;
     margin: 0 auto;
+    margin-bottom: 2em;
     display: flex;
     flex-direction: row;
-    overflow: hidden;
+    flex-wrap: wrap;
+    overflow: scroll;
+}
+.tank-list-item{
+    margin: 0 auto;
+}
+.tank-list-item h3{
+    margin: .3em auto;
+    text-align: center;
+}
+.tank-list-item img{
+    margin: 0 auto;
 }

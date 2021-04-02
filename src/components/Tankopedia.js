@@ -135,6 +135,8 @@ let handleSearchTanks = () =>{
                 tankFilter[0].tiers[tank.tier] === true){
                     searchedTanksArray.push(tank)
                 }
+        } else if(nationsFilterOn === false && typesFilterOn === false && tiersFilterOn === false){
+            searchedTanksArray.push(tank)
         }
     })
 }
@@ -182,8 +184,11 @@ handleSearchTanks()
                 searchedTanksArray.map(tank =>{
 
                     return(
-                        <div key={uuidv4()}>
-                            {tank.name}
+                        <div 
+                        key={uuidv4()}
+                        className="tank-list-item"
+                        >
+                            <h3>{tank.name}</h3>
                             <img src={tank.images.big_icon} />
                         </div>
                     )
