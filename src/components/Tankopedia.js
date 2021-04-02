@@ -1,6 +1,8 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
 
+import './tankopedia.css'
+
 function Tankopedia(props) {
     const  {
         tanksList,
@@ -44,6 +46,15 @@ let handleTypeClick = (type) =>{
         stateArray[0].types[type] = true
     }
     setTankFilter([...stateArray])
+}
+
+let handleBtnStyle = (e) =>{
+
+    if(e.target.classList.contains('clicked')){
+        e.target.classList.remove('clicked')
+    } else {
+        e.target.classList.add('clicked')
+    }
 }
 let handleSearchTanks = () =>{
     let workingArray = [tanksList]
@@ -133,38 +144,40 @@ handleSearchTanks()
         <div className="tank">
             Tankopedia
             <div className="tank-options">
-                <ul>
-                    <li><button onClick={() => handleNationClick('usa')}>U.S.A.</button></li>
-                    <li><button onClick={() => handleNationClick('germany')}>Germany</button></li>
-                    <li><button onClick={() => handleNationClick('ussr')}>U.S.S.R</button></li>
-                    <li><button onClick={() => handleNationClick('uk')}>U.K.</button></li>
-                    <li><button onClick={() => handleNationClick('france')}>France</button></li>
-                    <li><button onClick={() => handleNationClick('japan')}>Japan</button></li>
-                    <li><button onClick={() => handleNationClick('czech')}>Czech</button></li>
-                    <li><button onClick={() => handleNationClick('china')}>China</button></li>
-                    <li><button onClick={() => handleNationClick('poland')}>Poland</button></li>
+                <ul className="tank-options-ul">
+                    <li onClick={handleBtnStyle}><button 
+                        onClick={() => handleNationClick('usa')}>U.S.A.</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleNationClick('germany')}>Germany</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleNationClick('ussr')}>U.S.S.R</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleNationClick('uk')}>U.K.</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleNationClick('france')}>France</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleNationClick('japan')}>Japan</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleNationClick('czech')}>Czech</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleNationClick('china')}>China</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleNationClick('poland')}>Poland</button></li>
                 </ul>
-                <ul>
-                    <li><button onClick={() => handleTierClick(1)}>&#x2160;</button></li>
-                    <li><button onClick={() => handleTierClick(2)}>&#x2161;</button></li>
-                    <li><button onClick={() => handleTierClick(3)}>&#x2162;</button></li>
-                    <li><button onClick={() => handleTierClick(4)}>&#x2163;</button></li>
-                    <li><button onClick={() => handleTierClick(5)}>&#x2164;</button></li>
-                    <li><button onClick={() => handleTierClick(6)}>&#x2165;</button></li>
-                    <li><button onClick={() => handleTierClick(7)}>&#x2166;</button></li>
-                    <li><button onClick={() => handleTierClick(8)}>&#x2167;</button></li>
-                    <li><button onClick={() => handleTierClick(9)}>&#x2168;</button></li>
-                    <li><button onClick={() => handleTierClick(10)}>&#x2169;</button></li>
+                <ul className="tank-options-ul">
+                    <li onClick={handleBtnStyle}><button onClick={() => handleTierClick(1)}>&#x2160;</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleTierClick(2)}>&#x2161;</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleTierClick(3)}>&#x2162;</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleTierClick(4)}>&#x2163;</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleTierClick(5)}>&#x2164;</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleTierClick(6)}>&#x2165;</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleTierClick(7)}>&#x2166;</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleTierClick(8)}>&#x2167;</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleTierClick(9)}>&#x2168;</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleTierClick(10)}>&#x2169;</button></li>
                 </ul>
-                <ul>
-                    <li><button onClick={() => handleTypeClick('heavyTank')}>Heavy</button></li>
-                    <li><button onClick={() => handleTypeClick('mediumTank')}>Medium</button></li>
-                    <li><button onClick={() => handleTypeClick('lightTank')}>Light</button></li>
-                    <li><button onClick={() => handleTypeClick('SPG-AT')}>Tank Destroyer</button></li>
-                    <li><button onClick={() => handleTypeClick('SPG')}>Artillery</button></li>
+                <ul className="tank-options-ul">
+                    <li onClick={handleBtnStyle}><button onClick={() => handleTypeClick('heavyTank')}>Heavy</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleTypeClick('mediumTank')}>Medium</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleTypeClick('lightTank')}>Light</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleTypeClick('AT-SPG')}>Tank Destroyer</button></li>
+                    <li onClick={handleBtnStyle}><button onClick={() => handleTypeClick('SPG')}>Artillery</button></li>
                 </ul>
  
             </div>
+            <div className="tank-list">
             {
                 searchedTanksArray.map(tank =>{
 
@@ -176,6 +189,7 @@ handleSearchTanks()
                     )
                 })
             }
+            </div>
         </div>
     )
 }

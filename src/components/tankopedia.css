@@ -1,0 +1,26 @@
+
+.tank-options-ul li button{
+    background-color: #655d5d;
+    transform: translate(.5px, .5px)
+}
+.tank-options-ul li button:hover{
+    cursor: pointer;
+}
+.tank-options-ul li button:focus{
+    border: none;
+    outline: none;
+}
+.clicked{
+    transform: translate(.5px, .5px);
+    color: white;
+}
+
+
+.tank-list{
+    max-width: 80%;
+    max-height: 20vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    overflow: hidden;
+}
