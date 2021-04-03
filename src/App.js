@@ -5,10 +5,11 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Tankopedia from './components/Tankopedia';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
+import TankView from './components/TankView';
 
 import './index.css';
 
-require('dotenv').config();
+
 
 
 
@@ -18,8 +19,10 @@ function App() {
   const [tanksList, setTanksList] = useState([])
 
 
+
   useEffect(() =>{
     let callAPI = async () => {
+
       await fetch(`https://api.worldoftanks.com/wot/encyclopedia/vehicles/?application_id=${API_KEY}`)
         .then(response => response.json())
         .then(data => setTanksList([data.data][0]))
@@ -29,8 +32,11 @@ function App() {
   }, [])
 
 
+
+
   return(
     <BrowserRouter>
+
       <Navbar/>
       <Route exact path="/">
         <Home/>
@@ -41,6 +47,11 @@ function App() {
         tanksList={tanksList}
         />
       </Route>
+
+      <Route path="/tankopedia/:id">
+        <TankView tanksList={tanksList}/>
+      </Route>
+
     </BrowserRouter>
   )
 
