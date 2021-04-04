@@ -1,4 +1,8 @@
 
+.tank{
+    width: 60%;
+}
+
 .tank-options{
     display: flex;
     margin: 0 auto;
@@ -40,4 +44,7 @@
 }
 .tank-list-item img{
     margin: 0 auto;
+}
+.tank-list-item link button:hover{
+    cursor: pointer;
 }

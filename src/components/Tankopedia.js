@@ -3,6 +3,7 @@ import { v4 as uuidv4 } from 'uuid';
 import {Link} from 'react-router-dom';
 
 
+
 import './tankopedia.css'
 
 function Tankopedia(props) {
@@ -188,11 +189,10 @@ handleSearchTanks()
                     return(
                         <div 
                         key={uuidv4()}
-                        className="tank-list-item"
-                        >
+                        className="tank-list-item">
                             <h3>{tank.name}</h3>
                             <Link to={`/tankopedia/${tank.name}`} 
-                            tank={tank}><button><img src={tank.images.big_icon} /></button></Link>
+                            tank={tank}><button className="tank-list-item_btn"><img src={tank.images.big_icon} /></button></Link>
                         </div>
                     )
                 })

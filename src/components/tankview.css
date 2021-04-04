@@ -1,0 +1,13 @@
+.tank-view{
+    width: 30%;
+    margin: 0 auto;
+    padding: 0 1em;
+}
+.tank-view__nav{
+    display: flex;
+    justify-content: space-between;
+}
+.tank-view__exit-link a{
+    font-size: 2em;
+    text-decoration: none;
+}

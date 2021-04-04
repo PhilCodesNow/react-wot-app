@@ -9,7 +9,7 @@ import TankView from './components/TankView';
 
 import './index.css';
 
-require('dotenv').config();
+
 
 
 
@@ -19,8 +19,10 @@ function App() {
   const [tanksList, setTanksList] = useState([])
 
 
+
   useEffect(() =>{
     let callAPI = async () => {
+
       await fetch(`https://api.worldoftanks.com/wot/encyclopedia/vehicles/?application_id=${API_KEY}`)
         .then(response => response.json())
         .then(data => setTanksList([data.data][0]))
@@ -30,24 +32,29 @@ function App() {
   }, [])
 
 
+
+
   return(
     <BrowserRouter>
-      <Navbar/>
+
+      <Navbar />
       <Route exact path="/">
         <Home/>
       </Route>
+      <div className="tankopedia">
 
-      <Route path="/tankopedia">
-        <Tankopedia
-        tanksList={tanksList}
-        />
-      </Route>
+        <Route path="/tankopedia">
+          <Tankopedia
+          tanksList={tanksList}
+          />
+        </Route>
 
-      <TankView path={`tankopedia/:id`}>
-        <TankView 
-        {id=tank}
-        />
-      </TankView>
+
+        <Route path="/tankopedia/:id">
+          <TankView tanksList={tanksList}/>
+        </Route>
+
+      </div>
     </BrowserRouter>
   )
 
