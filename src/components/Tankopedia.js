@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { v4 as uuidv4 } from 'uuid';
+import {Link} from 'react-router-dom';
+
 
 import './tankopedia.css'
 
@@ -189,7 +191,8 @@ handleSearchTanks()
                         className="tank-list-item"
                         >
                             <h3>{tank.name}</h3>
-                            <img src={tank.images.big_icon} />
+                            <Link to={`/tankopedia/${tank.name}`} 
+                            tank={tank}><button><img src={tank.images.big_icon} /></button></Link>
                         </div>
                     )
                 })

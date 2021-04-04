@@ -5,6 +5,7 @@ import { BrowserRouter, Route } from "react-router-dom";
 import Tankopedia from './components/Tankopedia';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
+import TankView from './components/TankView';
 
 import './index.css';
 
@@ -41,6 +42,12 @@ function App() {
         tanksList={tanksList}
         />
       </Route>
+
+      <TankView path={`tankopedia/:id`}>
+        <TankView 
+        {id=tank}
+        />
+      </TankView>
     </BrowserRouter>
   )
 
