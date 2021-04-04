@@ -6,10 +6,15 @@
 .tank-view__nav{
     display: flex;
     justify-content: space-between;
+    align-items: center;
 }
 .tank-view__exit-link a{
     font-size: 2em;
     text-decoration: none;
+    color: #d30606;
+}
+.tank-view__exit-link a:hover{
+    color: #f41717;
 }
 .tank-view__stats{
     display: flex;

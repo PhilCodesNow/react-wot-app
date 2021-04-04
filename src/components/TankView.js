@@ -35,10 +35,10 @@ console.log(currentTank)
         <div className="tank-view">
             <div className="tank-view__nav">
                 <div>
-                    {currentTank.name}
+                    <h1>{currentTank.name}</h1>
                 </div>
                 <div className="tank-view__exit-link">
-                    <Link to="/tankopedia">&#x2718;</Link>
+                    <h2><Link to="/tankopedia">&#x2718;</Link></h2>
                 </div>
             </div>
             <div className="tank-view__description">
