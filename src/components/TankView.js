@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, Link } from 'react-router-dom';
 
 function TankView(props) {
 const {
@@ -21,12 +21,17 @@ const createTank = () =>{
 
 
 createTank()
-
+console.log(currentTank)
     return (
         <div>
-            <h1>TANK VIEW</h1>
-            <h3>tank name here</h3>
-            {currentTank.name}
+            {currentTank.name}ls
+            <img src={currentTank.images.small_icon}/>
+            <img src={currentTank.images.contour_icon}/>
+            <img src={currentTank.images.big_icon}/>
+
+            <div>
+                <Link to="/tankopedia">Back</Link>
+            </div>
         </div>
     )
 }

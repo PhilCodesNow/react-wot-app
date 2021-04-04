@@ -42,13 +42,13 @@ function App() {
         <Home/>
       </Route>
 
-      <Route path="/tankopedia">
+      <Route exact path="/tankopedia">
         <Tankopedia
         tanksList={tanksList}
         />
       </Route>
 
-      <Route path="/tankopedia/:id">
+      <Route exact path="/tankopedia/:id">
         <TankView tanksList={tanksList}/>
       </Route>
 
