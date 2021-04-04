@@ -1,7 +1,10 @@
 import React from 'react';
 import { useParams, Link } from 'react-router-dom';
-
+import TankViewTurret from './TankViewTurret';
+import TankViewRadio from './TankViewRadio';
+import TankViewGuns from './TankViewGuns';
 import './tankview.css';
+import TankViewCrew from './TankViewCrew';
 
 
 function TankView(props) {
@@ -25,6 +28,9 @@ const createTank = () =>{
 
 createTank()
 console.log(currentTank)
+
+
+
     return (
         <div className="tank-view">
             <div className="tank-view__nav">
@@ -40,31 +46,30 @@ console.log(currentTank)
                 <p>{currentTank.description}</p>
             </div>
             <div className="tank-view__stats">
-                <div className="tank-view__stats__crew">
+                <div className="tank-view__stats__crew tank-view__stats__div">
                     <h3>Crew</h3>
-                    {
-                        currentTank.crew.map(crewMember =>{
-                            
-                            return(<div>
-                                {Object.values(crewMember.roles)[0]}    
-                                </div>)
-                        })
-                    }
+                    <TankViewCrew
+                    currentTank={currentTank}
+                    />
                 </div>
-                <div className="tank-view__stats__modules">
-                    <div className="tank-view__stats__guns">
+                    <div className="tank-view__stats__guns tank-view__stats__div">
                         <h3>Guns</h3>
-                        {
-                            Object.values(currentTank.modules_tree).map(module =>{
-                                if(module.type === "vehicleGun"){
-                                    return(<div>
-                                        {module.name}
-                                        </div>)
-                                }
-                            })
-                        }
+                        <TankViewGuns
+                        currentTank={currentTank}
+                        />
                     </div>
-                </div>
+                    <div className="tank-view__stats__turrets tank-view__stats__div">
+                        <h3>Turrets</h3>
+                        <TankViewTurret 
+                        currentTank={currentTank}/>
+                    </div>
+                    <div className="tank-view__stats__radios tank-view__stats__div">
+                        <h3>Radios</h3>
+                        <TankViewRadio 
+                        currentTank={currentTank}
+                        />
+                    </div>
+
             </div>
 
 

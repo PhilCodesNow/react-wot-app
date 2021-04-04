@@ -11,3 +11,11 @@
     font-size: 2em;
     text-decoration: none;
 }
+.tank-view__stats{
+    display: flex;
+    flex-wrap: wrap;
+}
+.tank-view__stats__div{
+    width: 50%;
+    overflow: hidden;
+}
