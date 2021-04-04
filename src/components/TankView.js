@@ -16,7 +16,7 @@ let currentTank
 const createTank = () =>{
     let workingArray = Object.values(tanksList)
     workingArray.map(tank => {
-        if(tank.name === id){
+        if(tank.tag === id){
             currentTank = tank
         }
     })

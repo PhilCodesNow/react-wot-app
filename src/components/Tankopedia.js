@@ -191,7 +191,7 @@ handleSearchTanks()
                         key={uuidv4()}
                         className="tank-list-item">
                             <h3>{tank.name}</h3>
-                            <Link to={`/tankopedia/${tank.name}`} 
+                            <Link to={`/tankopedia/${tank.tag}`} 
                             tank={tank}><button className="tank-list-item_btn"><img src={tank.images.big_icon} /></button></Link>
                         </div>
                     )
