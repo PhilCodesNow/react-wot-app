@@ -5,6 +5,7 @@ import TankViewRadio from './TankViewRadio';
 import TankViewGuns from './TankViewGuns';
 import './tankview.css';
 import TankViewCrew from './TankViewCrew';
+import TankViewMisc from './TankViewMisc';
 
 
 function TankView(props) {
@@ -44,6 +45,11 @@ console.log(currentTank)
             <div className="tank-view__description">
                 <img src={currentTank.images.big_icon}/>
                 <p>{currentTank.description}</p>
+            </div>
+            <div className="tank-view__miscinfo">
+                <TankViewMisc
+                currentTank={currentTank}
+                />
             </div>
             <div className="tank-view__stats">
                 <div className="tank-view__stats__crew tank-view__stats__div">

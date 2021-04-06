@@ -149,7 +149,7 @@ handleSearchTanks()
         <div className="tank">
             Tankopedia
             <div className="tank-options">
-                <ul className="tank-options-ul">
+                <ul className="tank-options-ul top-ul">
                     <li onClick={handleBtnStyle}><button 
                         onClick={() => handleNationClick('usa')}>U.S.A.</button></li>
                     <li onClick={handleBtnStyle}><button onClick={() => handleNationClick('germany')}>Germany</button></li>

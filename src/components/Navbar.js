@@ -8,6 +8,7 @@ function Navbar() {
                 <ul>
                     <li><Link to="/">Home</Link></li>
                     <li><Link to="/tankopedia">Tankopedia</Link></li>
+                    <li><Link to="/players">Player Lookup</Link></li>
                 </ul>
             </div>
         </div>

@@ -6,6 +6,8 @@ import Tankopedia from './components/Tankopedia';
 import Home from './components/Home';
 import Navbar from './components/Navbar';
 import TankView from './components/TankView';
+import PlayerLookup from './components/PlayerLookup';
+
 
 import './index.css';
 
@@ -34,6 +36,7 @@ function App() {
 
 
 
+
   return(
     <BrowserRouter>
 
@@ -55,6 +58,9 @@ function App() {
         </Route>
 
       </div>
+      <Route path="/players">
+        <PlayerLookup/>
+      </Route>
     </BrowserRouter>
   )
 

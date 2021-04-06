@@ -16,6 +16,9 @@
 .tank-view__exit-link a:hover{
     color: #f41717;
 }
+.tank-view__description img{
+    width: 100%;
+}
 .tank-view__stats{
     display: flex;
     flex-wrap: wrap;
