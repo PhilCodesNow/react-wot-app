@@ -40,6 +40,7 @@ function PlayerLookup() {
             }
         })
         searchPlayerId(playerIdd)
+        console.log(apiPlayerName)
 
     }
 
@@ -51,10 +52,16 @@ function PlayerLookup() {
     }
     const handleFormSubmit = (e) =>{
         e.preventDefault()
-        setNoPlayerNamedSearch(...playerSearchForm)
-        callAPI()
-        setPlayerSearchForm('')
-        e.target.reset()
+        if(playerSearchForm){
+            let checkSearchLength = playerSearchForm[0]
+            let numberOfString = checkSearchLength.split('')
+            if(numberOfString.length >= 3){
+                setNoPlayerNamedSearch(...playerSearchForm)
+                callAPI()
+                setPlayerSearchForm('')
+                e.target.reset()
+            }
+        }
     }
     return (
         <div className="playerlookup">

@@ -7,8 +7,6 @@ const {
     noPlayerNamedSearch
 } = props
 
-console.log('here')
-console.log(noPlayerNamedSearch)
 
 
 if(apiPlayerName !== null){
