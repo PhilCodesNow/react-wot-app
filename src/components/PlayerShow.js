@@ -3,12 +3,24 @@ import PlayerLookup from './PlayerLookup'
 
 function PlayerShow(props) {
 const {
-    apiPlayerName
+    apiPlayerName,
+    noPlayerNamedSearch
 } = props
-if(apiPlayerName.nickname){
+
+console.log('here')
+console.log(noPlayerNamedSearch)
+
+
+if(apiPlayerName !== null){
     return(
         <div>
             {apiPlayerName.nickname}
+        </div>
+    )
+} else if(apiPlayerName === null){
+    return(
+        <div>
+            No one has the nickname "{noPlayerNamedSearch}"
         </div>
     )
 } else{
