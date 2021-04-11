@@ -9,16 +9,20 @@ const {
 
 
 
-if(apiPlayerName !== null){
-    return(
-        <div>
-            {apiPlayerName.nickname}
-        </div>
-    )
-} else if(apiPlayerName === null){
+if(apiPlayerName === null){
+    console.log(apiPlayerName)
     return(
         <div>
             No one has the nickname "{noPlayerNamedSearch}"
+        </div>
+    )
+} else if(apiPlayerName.nickname){
+    console.log(apiPlayerName)
+    return(
+        <div>
+            {apiPlayerName.nickname}
+            {apiPlayerName.global_rating}
+            {apiPlayerName.statistics.all.battles}
         </div>
     )
 } else{
