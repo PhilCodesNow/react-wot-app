@@ -1,4 +1,51 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+.noplayeravail{
+    font-size: 2em;
+}
 .playershow{
     margin: 0 auto;
     text-align: center;
+}
+.playershow__header h2{
+    font-size: 3em;
+    margin: 1em 0;
+}
+
+
+
+.playershow__stats{
+    width: 80%;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.playershow__stats__flex{
+    width: 20%;
+}
+.playershow__stats__div{
+    margin: 3em auto;
+    width: 60%;
+    text-align: center;
+}
+.playershow__stats__div h3{
+    font-size: 2em;
+}
+
+.playershow__stats__pr{
+    margin-top: 8em;
+}
+.playershow__stats__pr h3{
+    font-size: 3.5em;
+}
+.playershow__stats__pr p{
+    font-size: 1.5em;
+}
+
+.noplayershow{
+    font-size: 2em;
 }

@@ -1,6 +1,8 @@
 import React from 'react'
 import PlayerLookup from './PlayerLookup'
 
+import './playershow.css';
+
 function PlayerShow(props) {
 const {
     apiPlayerName,
@@ -43,7 +45,7 @@ if(apiPlayerName !== null){
 
 if(apiPlayerName === null){
     return(
-        <div className="playershow">
+        <div className="noplayeravail">
             No one has the nickname "{noPlayerNamedSearch}"
         </div>
     )
@@ -57,38 +59,40 @@ if(apiPlayerName === null){
             <div className="playershow__stats">
                 <div className="playershow__stats__flex">
                     <div className="playershow__stats__div">
-                        <h3>Battles</h3>
-                        {apiPlayerName.statistics.all.battles}
+                        <h3>{apiPlayerName.statistics.all.battles}</h3>
+                        <p>Battles</p>
                     </div>
                     <div className="playershow__stats__div">
-                        <h3>Average Experience Per Battle</h3>
-                        {apiPlayerName.statistics.all.battle_avg_xp}
+                        <h3>{apiPlayerName.statistics.all.battle_avg_xp}</h3>
+                        <p>Average Experience Per Battle</p>
                     </div>
                     <div className="playershow__stats__div">
-                        <h3>Average Damage</h3>
+                        <h3>                        
                         {
                             parseInt(apiPlayerName.statistics.all.damage_dealt/apiPlayerName.statistics.all.battles)
                         }
+                        </h3>
+                        Average Damage
                     </div>
                 </div>
                 <div className="playershow__stats__flex">
                     <div className="playershow__stats__pr">
-                        <h3>Personal Rating</h3>
-                        {apiPlayerName.global_rating}
+                        <h3>{apiPlayerName.global_rating}</h3>
+                        <p>Personal Rating</p>
                     </div>
                 </div>
                 <div className="playershow__stats__flex">
                     <div className="playershow__stats__div">
-                        <h3>Most Vehicles Destroyed In A Battle</h3>
-                        {apiPlayerName.statistics.all.max_frags}
+                        <h3>{apiPlayerName.statistics.all.max_frags}</h3>
+                        <p>Most Vehicles Destroyed In A Battle</p>
                     </div>
                     <div className="playershow__stats__div">
-                        <h3>Accuracy</h3>
-                        {newAcc}%
+                        <h3> {newAcc}%</h3>
+                       <p>Accuracy</p>
                     </div>
                     <div className="playershow__stats__div">
-                        <h3>Victories</h3>
-                        {newWR}%
+                        <h3>{newWR}%</h3>
+                        <p>Victories</p>
                     </div>
                 </div>
 
@@ -97,7 +101,7 @@ if(apiPlayerName === null){
     )
 } else{
     return(
-        <div className="playershow">
+        <div className="noplayershow">
             no one searched
         </div>
     )

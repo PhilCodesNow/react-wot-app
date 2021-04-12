@@ -2,6 +2,13 @@
     text-align: center;
     margin: 0 auto;
 }
+.playerlookup h1{
+    font-size: 3em;
+    padding-bottom: 2em;
+}
+.playerlookup__searchform{
+    margin-bottom: 2em;
+}
 .playerlookup__searchform form input{
     font-size: 2em;
     outline: none;
@@ -12,4 +19,14 @@
 }
 .playerlookup__searchform form input[type=text]:focus{
     outline: none;
+}
+.playerlookup__searchform form input[type=submit]{
+    background-color: rgba(1, 1, 1, 0);
+    border: none;
+    font-size: 3em;
+    margin: 0;
+    padding: 0 .4em;
+}
+.playerlookup__searchform form input[type=submit]:hover{
+    cursor: pointer;
 }
