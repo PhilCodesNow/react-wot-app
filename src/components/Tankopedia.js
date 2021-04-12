@@ -147,7 +147,6 @@ handleSearchTanks()
 
     return (
         <div className="tank">
-            Tankopedia
             <div className="tank-options">
                 <ul className="tank-options-ul top-ul">
                     <li onClick={handleBtnStyle}><button 

@@ -1,0 +1,25 @@
+
+.navbar{
+    background-color: rgba(93, 89, 89, .7);
+}
+
+.navbar__ul ul{
+    margin: 0 auto;
+    padding: 2em 0;
+    width: 50%;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+}
+.navbar__ul ul li{
+    margin: 0 1em;
+    list-style-type: none;
+    font-size: 1.9em;
+}
+.navbar__ul ul li a{
+    text-decoration: none;
+    color: #333333;
+}
+.navbar__ul ul li a:hover{
+    text-decoration: underline;
+}
