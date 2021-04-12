@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import PlayerShow from './PlayerShow';
 
+import SearchIcon from '@material-ui/icons/Search';
 import './playerlookup.css';
 
 
@@ -65,11 +66,12 @@ function PlayerLookup() {
     }
     return (
         <div className="playerlookup">
-            Player Lookup 
-            <div className="playerlookup-searchform">
+            <h1>Player Lookup</h1>
+            <div className="playerlookup__searchform">
                 <form onSubmit={handleFormSubmit}>
-                    <input type="text" onChange={handleInputChange}></input>
-                    <input type="submit" value="Search"></input>
+                    <input type="text" onChange={handleInputChange} placeholder="minimum 3 letters"></input>
+                    <input type="submit"></input>
+                    <SearchIcon/>
                 </form>
             </div>
             <div className="playerlookup-results">

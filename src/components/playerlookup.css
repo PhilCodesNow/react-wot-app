@@ -1,0 +1,15 @@
+.playerlookup{
+    text-align: center;
+    margin: 0 auto;
+}
+.playerlookup__searchform form input{
+    font-size: 2em;
+    outline: none;
+}
+.playerlookup__searchform form input[type=text]{
+    border-radius: 25px;
+    padding: .3em;
+}
+.playerlookup__searchform form input[type=text]:focus{
+    outline: none;
+}
