@@ -22,16 +22,16 @@ function App() {
 
 
 
-  // useEffect(() =>{
-  //   let callAPI = async () => {
+  useEffect(() =>{
+    let callAPI = async () => {
 
-  //     await fetch(`https://api.worldoftanks.com/wot/encyclopedia/vehicles/?application_id=${API_KEY}`)
-  //       .then(response => response.json())
-  //       .then(data => setTanksList([data.data][0]))
-  //     }
-  //   callAPI()
+      await fetch(`https://api.worldoftanks.com/wot/encyclopedia/vehicles/?application_id=${API_KEY}`)
+        .then(response => response.json())
+        .then(data => setTanksList([data.data][0]))
+      }
+    callAPI()
 
-  // }, [])
+  }, [])
 
 
 

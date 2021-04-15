@@ -1,0 +1,15 @@
+.homepage{
+    width: 70%;
+    margin: 0 auto;
+}
+.homepage__header{
+    margin: 2em auto;
+    text-align: center;
+    font-size: 1.7em;
+}
+.homepage__about{
+    font-size: 1.4em;
+}
+.homepage__about p{
+    margin: 1em 2em;
+}
