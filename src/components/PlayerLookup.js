@@ -13,7 +13,7 @@ function PlayerLookup() {
     const [apiPlayerName, setApiPlayerName] = useState([])
     const [noPlayerNamedSearch, setNoPlayerNamedSearch] = useState([])
     
-    const API_KEY = process.env.REACT_APP_API_KEY
+    let API_KEY
 
         let callAPI = async () =>{
         await fetch(`https://api.worldoftanks.com/wot/account/list/?application_id=${API_KEY}&search=${playerSearchForm[0]}`)
