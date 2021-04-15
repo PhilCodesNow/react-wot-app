@@ -17,6 +17,7 @@ import './index.css';
 
 const API_KEY = process.env.REACT_APP_API_KEY
 
+
 function App() {
   const [tanksList, setTanksList] = useState([])
 
@@ -25,7 +26,7 @@ function App() {
   useEffect(() =>{
     let callAPI = async () => {
 
-      await fetch(`https://api.worldoftanks.com/wot/encyclopedia/vehicles/?application_id=${API_KEY}`)
+      await fetch(`https://api.worldoftanks.com/wot/encyclopedia/vehicles/?application_id=c4b854912bdacf3fb4c90abe55d38b74`)
         .then(response => response.json())
         .then(data => setTanksList([data.data][0]))
       }
