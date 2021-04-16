@@ -13,9 +13,10 @@ import './index.css';
 
 
 
+const fs = require('fs')
+fs.writeFileSync('./.env',`REACT_APP_API_KEY=${process.env.REACT_APP_API_KEY}`)
 
 
-let API_KEY
 
 
 function App() {
@@ -26,7 +27,7 @@ function App() {
   useEffect(() =>{
     let callAPI = async () => {
 
-      await fetch(`https://api.worldoftanks.com/wot/encyclopedia/vehicles/?application_id=${API_KEY}`)
+      await fetch(`https://api.worldoftanks.com/wot/encyclopedia/vehicles/?application_id=${REACT_APP_API_KEY}`)
         .then(response => response.json())
         .then(data => setTanksList([data.data][0]))
       }
