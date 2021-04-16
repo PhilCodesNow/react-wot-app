@@ -7,6 +7,12 @@ import './playerlookup.css';
 
 function PlayerLookup() {
 
+    let API_KEY = (() =>{
+        const fs = require('fs')
+      fs.writeFileSync('./.env',`REACT_APP_API_KEY=${process.env.REACT_APP_API_KEY}`)
+      })
+      
+
     const [playerSearchForm, setPlayerSearchForm] = useState()
     // const [apiPlayerList, setApiPlayerList] = useState([])
     const [playerId, setPlayerId] = useState([])
@@ -16,13 +22,13 @@ function PlayerLookup() {
 
 
         let callAPI = async () =>{
-        await fetch(`https://api.worldoftanks.com/wot/account/list/?application_id=${REACT_APP_API_KEY}&search=${playerSearchForm[0]}`)
+        await fetch(`https://api.worldoftanks.com/wot/account/list/?application_id=${API_KEY}&search=${playerSearchForm[0]}`)
             .then(response => response.json())
             .then(data => checkPlayerId(data.data))
         }
        
         let searchPlayerId = (playerIdd) =>{
-        fetch(`https://api.worldoftanks.com/wot/account/info/?application_id=${REACT_APP_API_KEY}&account_id=${playerIdd}
+        fetch(`https://api.worldoftanks.com/wot/account/info/?application_id=${API_KEY}&account_id=${playerIdd}
         `)
             .then(response => response.json())
             .then(data => setApiPlayerName(data.data[playerIdd]))
