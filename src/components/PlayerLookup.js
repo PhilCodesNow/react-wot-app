@@ -7,10 +7,7 @@ import './playerlookup.css';
 
 function PlayerLookup() {
 
-    let API_KEY = (() =>{
-        const fs = require('fs')
-      fs.writeFileSync('./.env',`REACT_APP_API_KEY=${process.env.REACT_APP_API_KEY}`)
-      })
+
       
 
     const [playerSearchForm, setPlayerSearchForm] = useState()

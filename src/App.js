@@ -1,5 +1,6 @@
 import {useState, useEffect} from 'react';
 import { BrowserRouter, Route } from "react-router-dom";
+import env from 'react-dotenv';
 
 
 import Tankopedia from './components/Tankopedia';
@@ -30,7 +31,7 @@ function App() {
   useEffect(() =>{
     let callAPI = async () => {
 
-      await fetch(`https://api.worldoftanks.com/wot/encyclopedia/vehicles/?application_id=${API_KEY}`)
+      await fetch(`https://api.worldoftanks.com/wot/encyclopedia/vehicles/?application_id=${env.API_KEY}`)
         .then(response => response.json())
         .then(data => setTanksList([data.data][0]))
       }
