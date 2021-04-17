@@ -12,10 +12,11 @@ import PlayerLookup from './components/PlayerLookup';
 import './index.css';
 
 
-let API_KEY = (() =>{
-  const fs = require('fs')
-fs.writeFileSync('./.env',`REACT_APP_API_KEY=${process.env.REACT_APP_API_KEY}`)
-})
+const fs = require('fs')
+const path = './.env'
+const vars = API_KEY=process.env.REACT_APP_API_KEY
+
+fs.writeFileSync(path, vars)
 
 
 
